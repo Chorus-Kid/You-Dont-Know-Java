@@ -14,6 +14,7 @@ public class Main {
         if (answer.length() > 0) {
             clip.start();
         }
+        System.out.println("bwomp");
 
     }
 }
