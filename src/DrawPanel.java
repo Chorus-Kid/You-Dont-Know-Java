@@ -14,11 +14,7 @@ public class DrawPanel extends JPanel implements KeyListener {
         super.paintComponent(g);
         Scanner s = new Scanner(System.in);
         intro(g);
-        //String enter = s.nextLine();
-        //int enterEnter = Integer.parseInt(enter);
-        //if (enterEnter == KeyEvent.VK_ENTER) {
-        //    signInScreen(g);
-        //}
+
     }
 
     public void intro(Graphics g) {
@@ -36,9 +32,13 @@ public class DrawPanel extends JPanel implements KeyListener {
         g.setColor(new Color(100));
         g.fillRect(0, 0, 500, 500);
         g.setColor(new Color(255, 165, 0));
+        g.setFont(new Font("Courier New", Font.BOLD, 25));
+        g.drawString("Please enter name: ", 150, 100);
     }
     public void keyTyped(KeyEvent e) {
-
+        if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+            System.out.println("Yahoo!!");
+        }
     }
     public void keyPressed(KeyEvent e) {}
     public void keyReleased(KeyEvent e) {}
