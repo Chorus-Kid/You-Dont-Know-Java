@@ -17,8 +17,12 @@ public class DrawPanel extends JPanel implements KeyListener {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         Scanner s = new Scanner(System.in);
-        intro(g);
-
+        if (onIntro) {
+            intro(g);
+        }
+        else if (onSignIn) {
+            signInScreen(g);
+        }
     }
 
     public void intro(Graphics g) {
@@ -41,8 +45,9 @@ public class DrawPanel extends JPanel implements KeyListener {
     }
     @Override
     public void keyTyped(KeyEvent e) {
-        if(e.getKeyCode() == KeyEvent.VK_ENTER) {
-            System.out.println("Yahoo!!");
+        if(e.getKeyCode() == KeyEvent.VK_ENTER && onIntro) {
+            onIntro = false;
+            onSignIn = true;
         }
     }
     @Override
