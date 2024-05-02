@@ -6,8 +6,12 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class DrawPanel extends JPanel implements KeyListener {
+    private boolean onIntro;
+    private boolean onSignIn;
     public DrawPanel() {
         this.addKeyListener(this);
+        onIntro = true;
+        onSignIn = false;
     }
 
     protected void paintComponent(Graphics g) {
@@ -35,11 +39,18 @@ public class DrawPanel extends JPanel implements KeyListener {
         g.setFont(new Font("Courier New", Font.BOLD, 25));
         g.drawString("Please enter name: ", 150, 100);
     }
+    @Override
     public void keyTyped(KeyEvent e) {
         if(e.getKeyCode() == KeyEvent.VK_ENTER) {
             System.out.println("Yahoo!!");
         }
     }
-    public void keyPressed(KeyEvent e) {}
-    public void keyReleased(KeyEvent e) {}
+    @Override
+    public void keyPressed(KeyEvent e) {
+         System.out.println("Whar??? You pressed a key!! It says '" + e.getKeyChar() + "'!");
+    }
+    @Override
+    public void keyReleased(KeyEvent e) {
+
+    }
 }
