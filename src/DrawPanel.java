@@ -9,6 +9,14 @@ import java.util.ArrayList;
 public class DrawPanel extends JPanel implements KeyListener {
     private boolean onIntro;
     private boolean onSignIn;
+    private boolean getReadyForSomeFunItsTimeForQuestionOne;
+    private boolean twoJustTwo;
+    private boolean gibbewishKweshtwinUwU;
+    private boolean yayyyQuestionFour;
+    private boolean streetMurder;
+    private boolean frickItsSix;
+    private boolean jakkuAttakku;
+
     public DrawPanel() {
         this.addKeyListener(this);
         setFocusable(true);
@@ -37,22 +45,42 @@ public class DrawPanel extends JPanel implements KeyListener {
         g.setFont(new Font("Impact", Font.BOLD, 90));
         g.drawString("JACK", 145, 180);
         g.setFont(new Font("Monospaced", Font.PLAIN, 15));
-        g.drawString("Press Enter to continue", 135, 300);
+        g.drawString("Press Space to continue", 135, 300);
     }
     public void signInScreen(Graphics g) {
         g.setColor(new Color(100));
         g.fillRect(0, 0, 500, 500);
         g.setColor(new Color(255, 165, 0));
         g.setFont(new Font("Courier New", Font.BOLD, 25));
-        g.drawString("Please enter name: ", 150, 100);
+        g.drawString("Please enter name: ", 100, 100);
+        String ;
+
     }
 
 
 
     public void keyTyped(KeyEvent e) {
-        if(e.getKeyCode() == KeyEvent.VK_ENTER && onIntro) {
+        if(e.getKeyChar() == ' ' && onIntro) {
             onIntro = false;
             onSignIn = true;
+        }
+        if(onSignIn) {
+
+        }
+
+    }
+    public String showOnScreen(KeyEvent e, Graphics g) {
+        if (onSignIn) {
+            String name = "";
+            String letter = String.valueOf(e.getKeyChar());
+            int startingPosition = 100;
+            int plusSpace = 25;
+            while (e.getKeyCode() != KeyEvent.VK_ENTER) {
+                g.drawString(letter, startingPosition + plusSpace, 100);
+                name = name + letter;
+                plusSpace = plusSpace + 25;
+            }
+            return name;
         }
 
     }
