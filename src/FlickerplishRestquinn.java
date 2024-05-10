@@ -1,5 +1,5 @@
 import java.util.Timer;
-import java.util.TimerTask;
+import java.awt.event.KeyEvent;
 
 public class FlickerplishRestquinn extends Question{
     private String firstHint;
@@ -11,8 +11,25 @@ public class FlickerplishRestquinn extends Question{
         secondHint = hintTwo;
         thirdHint = hintThree;
     }
+    public String printGibberish() {
+        return getQuestion();
+    }
 
     public void giveHints() {
-
+        Timer fHint = new Timer();
+        fHint.schedule(new FlickerplishWince(), 15000);
     }
+
+    public String getFirstHint() {
+        return firstHint;
+    }
+
+    public String getSecondHint() {
+        return secondHint;
+    }
+
+    public String getThirdHint() {
+        return thirdHint;
+    }
+
 }
