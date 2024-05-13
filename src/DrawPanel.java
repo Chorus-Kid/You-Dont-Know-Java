@@ -53,7 +53,7 @@ public class DrawPanel extends JPanel implements KeyListener {
         g.setColor(new Color(255, 165, 0));
         g.setFont(new Font("Courier New", Font.BOLD, 25));
         g.drawString("Please enter name: ", 100, 100);
-        String ;
+
 
     }
 
@@ -69,7 +69,7 @@ public class DrawPanel extends JPanel implements KeyListener {
         }
 
     }
-    public String showOnScreen(KeyEvent e, Graphics g) {
+   /** public String showOnScreen(KeyEvent e, Graphics g) {
         if (onSignIn) {
             String name = "";
             String letter = String.valueOf(e.getKeyChar());
@@ -84,6 +84,7 @@ public class DrawPanel extends JPanel implements KeyListener {
         }
 
     }
+    **/
 
     public void keyPressed(KeyEvent e) {
 
