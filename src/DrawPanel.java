@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
-import javax.swing.JPanel;
+import javax.swing.*;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -14,7 +14,7 @@ public class DrawPanel extends JPanel implements KeyListener {
     private boolean gibbewishKweshtwinUwU;
     private boolean yayyyQuestionFour;
     private boolean streetMurder;
-    private boolean frickItsSix;
+    private boolean goinLostGoldStyleHere;
     private boolean jakkuAttakku;
 
     public DrawPanel() {
@@ -39,7 +39,7 @@ public class DrawPanel extends JPanel implements KeyListener {
     public void intro(Graphics g) {
         g.setColor(new Color(0, 0, 0));
         g.fillRect(0, 0, 500, 500);
-        g.setColor(new Color(255, 255, 255));
+        g.setColor(new Color(255, 255, 255, 255));
         g.setFont(new Font("Impact", Font.BOLD, 25));
         g.drawString("YOU DON'T KNOW", 150, 100);
         g.setFont(new Font("Impact", Font.BOLD, 90));
@@ -53,8 +53,10 @@ public class DrawPanel extends JPanel implements KeyListener {
         g.setColor(new Color(255, 165, 0));
         g.setFont(new Font("Courier New", Font.BOLD, 25));
         g.drawString("Please enter name: ", 100, 100);
-
-
+        JTextArea textArea = new JTextArea(5, 20);
+        textArea.setEditable(true);
+        textArea.setLineWrap(true);
+        textArea.setWrapStyleWord(true);
     }
 
 
