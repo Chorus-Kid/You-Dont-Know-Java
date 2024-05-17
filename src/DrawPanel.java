@@ -38,25 +38,27 @@ public class DrawPanel extends JPanel implements KeyListener {
 
     public void intro(Graphics g) {
         g.setColor(new Color(0, 0, 0));
-        g.fillRect(0, 0, 500, 500);
+        g.fillRect(0, 0, 5000, 5000);
         g.setColor(new Color(255, 255, 255, 255));
-        g.setFont(new Font("Impact", Font.BOLD, 25));
-        g.drawString("YOU DON'T KNOW", 150, 100);
-        g.setFont(new Font("Impact", Font.BOLD, 90));
-        g.drawString("JACK", 145, 180);
-        g.setFont(new Font("Monospaced", Font.PLAIN, 15));
-        g.drawString("Press Space to continue", 135, 300);
+        g.setFont(new Font("Impact", Font.BOLD, 125));
+        g.drawString("YOU DON'T KNOW", 500, 250);
+        g.setFont(new Font("Impact", Font.BOLD, 425));
+        g.drawString("JACK", 490, 610);
+        g.setFont(new Font("Monospaced", Font.PLAIN, 40));
+        g.drawString("Press the space button :))))", 600, 700);
     }
     public void signInScreen(Graphics g) {
         g.setColor(new Color(100));
-        g.fillRect(0, 0, 500, 500);
+        g.fillRect(0, 0, 5000, 5000);
         g.setColor(new Color(255, 165, 0));
-        g.setFont(new Font("Courier New", Font.BOLD, 25));
-        g.drawString("Please enter name: ", 100, 100);
+        g.setFont(new Font("Courier New", Font.BOLD, 50));
+        g.drawString("Press the space button again ;)))))", 100, 100);
         JTextArea textArea = new JTextArea(5, 20);
         textArea.setEditable(true);
         textArea.setLineWrap(true);
         textArea.setWrapStyleWord(true);
+        textArea.setFont(new Font("Courier New", Font.BOLD, 25));
+
     }
 
 
@@ -66,8 +68,9 @@ public class DrawPanel extends JPanel implements KeyListener {
             onIntro = false;
             onSignIn = true;
         }
-        if(onSignIn) {
-
+        else if(e.getKeyChar() == ' ' && onSignIn) {
+                onSignIn = false;
+                onIntro = true;
         }
 
     }
