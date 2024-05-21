@@ -54,10 +54,8 @@ public class DrawPanel extends JPanel implements KeyListener {
         g.setFont(new Font("Courier New", Font.BOLD, 50));
         g.drawString("Enter name: ", 100, 100);
         JTextArea textArea = new JTextArea(5, 20);
+        textArea.setFont(new Font("Courier New", Font.BOLD, 50));
         textArea.setEditable(true);
-        textArea.setLineWrap(true);
-        textArea.setWrapStyleWord(true);
-        textArea.setFont(new Font("Courier New", Font.BOLD, 25));
 
     }
 
