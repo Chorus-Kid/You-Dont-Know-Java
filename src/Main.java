@@ -14,7 +14,7 @@ public class Main {
         System.out.print("(Type in your name): ");
         String playerName = s.nextLine();
         Player cookieNotCookie = new Player(playerName);
-        if (playerName.equals("Cookie") || playerName.equals("Cookie Masterson")) {
+        if (playerName.contains("Cookie")) {
             System.out.println("Heyyy!! Cookie actually showed up! Sorry I can't host as good as you, but hope you enjoy the game regardless!");
         }
         System.out.println(cookieNotCookie.printPlayer());

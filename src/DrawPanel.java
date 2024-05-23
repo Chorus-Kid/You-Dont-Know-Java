@@ -45,7 +45,7 @@ public class DrawPanel extends JPanel implements KeyListener {
         g.setFont(new Font("Impact", Font.BOLD, 425));
         g.drawString("JACK", 490, 610);
         g.setFont(new Font("Monospaced", Font.PLAIN, 40));
-        g.drawString("Press enter to continue", 650, 700);
+        g.drawString("Press space to continue", 650, 700);
     }
     public void signInScreen(Graphics g) {
         g.setColor(new Color(100));
@@ -53,9 +53,9 @@ public class DrawPanel extends JPanel implements KeyListener {
         g.setColor(new Color(255, 165, 0));
         g.setFont(new Font("Courier New", Font.BOLD, 50));
         g.drawString("Enter name: ", 100, 100);
-        JTextArea textArea = new JTextArea(5, 20);
-        textArea.setFont(new Font("Courier New", Font.BOLD, 50));
-        textArea.setEditable(true);
+        g.drawRect(100, 125, 750, 50);
+        g.setFont(new Font("Courier New", Font.BOLD, 40));
+        g.drawString("[insert name here]", 101, 160);
 
     }
 
