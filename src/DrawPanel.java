@@ -9,6 +9,8 @@ import java.util.ArrayList;
 public class DrawPanel extends JPanel implements KeyListener {
     private boolean onIntro;
     private boolean onSignIn;
+    private boolean hereComesTheBoiiii;
+    private Player cookieNotCookie;
     private boolean getReadyForSomeFunItsTimeForQuestionOne;
     private boolean twoJustTwo;
     private boolean gibbewishKweshtwinUwU;
@@ -17,12 +19,15 @@ public class DrawPanel extends JPanel implements KeyListener {
     private boolean goinLostGoldStyleHere;
     private boolean jakkuAttakku;
 
+    private String userName;
+
     public DrawPanel() {
         this.addKeyListener(this);
         setFocusable(true);
         requestFocus();
         onIntro = true;
         onSignIn = false;
+        userName = "";
     }
 
     protected void paintComponent(Graphics g) {
@@ -33,6 +38,9 @@ public class DrawPanel extends JPanel implements KeyListener {
         }
         else if (onSignIn) {
             signInScreen(g);
+        }
+        else if (hereComesTheBoiiii) {
+            helloBoi(g);
         }
     }
 
@@ -55,16 +63,47 @@ public class DrawPanel extends JPanel implements KeyListener {
         g.drawString("Enter name: ", 100, 100);
         g.drawRect(100, 125, 750, 50);
         g.setFont(new Font("Courier New", Font.BOLD, 40));
-        g.drawString("[insert name here]", 101, 160);
-
+        g.drawString(userName, 101, 160);
     }
 
+    public void helloBoi(Graphics g) {
+        g.setColor(new Color(100));
+        g.fillRect(0, 0, 5000, 5000);
+        g.setColor(new Color(255, 165, 0));
+        g.setFont(new Font("Courier New", Font.BOLD, 100));
+        g.drawString(cookieNotCookie.printPlayer(), 290, 250);
+        if (cookieNotCookie.getName().contains("Cookie")) {
+            g.setFont(new Font("Courier New", Font.PLAIN, 50));
+            g.drawString("Cookie Masterson?? Is that you??", 350, 350);
+            g.drawString("What an honor!", 350, 400);
+        }
+        else {
+            g.setFont(new Font("Courier New", Font.PLAIN, 50));
+            g.drawString("What a fine name you have, " + cookieNotCookie.getName(), 350, 350);
+        }
+    }
 
 
     public void keyTyped(KeyEvent e) {
         if(e.getKeyChar() == ' ' && onIntro) {
             onIntro = false;
             onSignIn = true;
+        }
+
+        if (onSignIn) {
+            if ((int)e.getKeyChar() == 8) {
+                userName = userName.substring(0 , userName.length() - 1);
+            }
+
+            else {
+                userName += e.getKeyChar();
+            }
+            if ((int)e.getKeyChar() == 10) {
+                cookieNotCookie = new Player(userName);
+                onSignIn = false;
+                hereComesTheBoiiii = true;
+            }
+
         }
 
     }

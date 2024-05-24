@@ -23,7 +23,7 @@ public class Player {
     }
 
     public String printPlayer() {
-        String playerName = name + ":";
+        String playerName = name + ": ";
         String amount = "$" + money;
         return playerName + "\n" + amount;
     }
