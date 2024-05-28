@@ -13,6 +13,7 @@ public class DrawPanel extends JPanel implements KeyListener {
     private boolean hereComesTheBoiiii;
     private Player cookieNotCookie;
     private boolean getReadyForSomeFunItsTimeForQuestionOne;
+    private MultipleChoiceQuestion beeeeaaaammmm;
     private boolean twoJustTwo;
     private boolean gibbewishKweshtwinUwU;
     private boolean yayyyQuestionFour;
@@ -42,6 +43,9 @@ public class DrawPanel extends JPanel implements KeyListener {
         }
         else if (hereComesTheBoiiii) {
             helloBoi(g);
+        }
+        else if (getReadyForSomeFunItsTimeForQuestionOne) {
+            Q1(g);
         }
     }
 
@@ -88,6 +92,30 @@ public class DrawPanel extends JPanel implements KeyListener {
             g.setFont(new Font("Courier New", Font.PLAIN, 50));
             g.drawString("What a fine name you have, " + cookieNotCookie.getName(), 350, 350);
         }
+        g.setFont(new Font("Monospaced", Font.PLAIN, 50));
+        g.drawString("(Press space to continue)", 350, 750);
+    }
+
+    public void Q1(Graphics g) {
+        g.setColor(new Color(0));
+        g.fillRect(0, 0, 5000, 5000);
+        g.setColor(new Color(0xFFFFFF));
+        g.setFont(new Font("Monospace", Font.BOLD, 100));
+        g.drawString("01", 50, 100);
+        g.drawString("$1000", 1610, 100);
+        g.setFont(new Font("Comic Sans", Font.PLAIN, 50));
+        g.drawString("And now, it's time! For the moment you've been waiting for!", 250, 100);
+        g.setColor(new Color(0x23A4FF));
+        beeeeaaaammmm = new MultipleChoiceQuestion("One! Two! Three! Ready?", "2", 1000, "1. MR. BEEEEAAAST", "2. MIKU MIKU BEEEEEAAAAAMMMM", "3. M@gical Cure! Love Shot!", "4. MIKU MIKU CHEEEEEEEEESE");
+        g.setFont(new Font("Comic Sans", Font.PLAIN, 75));
+        g.drawString(beeeeaaaammmm.printQuestion(), 500, 200);
+        g.drawString(beeeeaaaammmm.getChoiceOne(), 250, 300);
+        g.drawString(beeeeaaaammmm.getChoiceTwo(), 250, 400);
+        g.drawString(beeeeaaaammmm.getChoiceThree(), 250, 500);
+        g.drawString(beeeeaaaammmm.getChoiceFour(), 250, 600);
+        g.setColor(new Color(255, 255, 255));
+        g.setFont(new Font("Monospace", Font.PLAIN, 40));
+        g.drawString("(Type the number you think is correct)", 250, 700);
     }
 
 
@@ -110,7 +138,21 @@ public class DrawPanel extends JPanel implements KeyListener {
                 onSignIn = false;
                 hereComesTheBoiiii = true;
             }
-
+        }
+        if (hereComesTheBoiiii) {
+            if (e.getKeyChar() == ' ') {
+                hereComesTheBoiiii = false;
+                getReadyForSomeFunItsTimeForQuestionOne = true;
+            }
+        }
+        if (getReadyForSomeFunItsTimeForQuestionOne) {
+            if (e.getKeyChar() == (Integer.parseInt(beeeeaaaammmm.getAnswer()))) {
+                cookieNotCookie.setMoney(beeeeaaaammmm.getQuestionValue() + cookieNotCookie.getMoney());
+            }
+            else if (!(e.getKeyChar() == (Integer.parseInt(beeeeaaaammmm.getAnswer())))) {
+                cookieNotCookie.setMoney(cookieNotCookie.getMoney() - beeeeaaaammmm.getQuestionValue());
+            }
+            getReadyForSomeFunItsTimeForQuestionOne = false;
         }
 
     }

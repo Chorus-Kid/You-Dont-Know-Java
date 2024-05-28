@@ -13,6 +13,14 @@ public class Question {
         return question;
     }
 
+    public String getAnswer() {
+        return answer;
+    }
+
+    public int getQuestionValue() {
+        return questionValue;
+    }
+
     public void checkQuestion(Player player, String playerAnswer) {
         if (answer.equals(playerAnswer)) {
             //play sound effect, visual effect, and voice clip if necessary
