@@ -3,6 +3,7 @@ import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 import javax.swing.*;
 import java.util.Scanner;
+import java.util.Timer;
 import java.util.ArrayList;
 
 
@@ -72,10 +73,16 @@ public class DrawPanel extends JPanel implements KeyListener {
         g.setColor(new Color(255, 165, 0));
         g.setFont(new Font("Courier New", Font.BOLD, 100));
         g.drawString(cookieNotCookie.printPlayer(), 290, 250);
-        if (cookieNotCookie.getName().contains("Cookie")) {
+        if (cookieNotCookie.getName().toLowerCase().contains("cookie")) {
             g.setFont(new Font("Courier New", Font.PLAIN, 50));
             g.drawString("Cookie Masterson?? Is that you??", 350, 350);
             g.drawString("What an honor!", 350, 400);
+        }
+        else if (cookieNotCookie.getName().toLowerCase().contains("wonderhoy") || cookieNotCookie.getName().toLowerCase().contains("emu")) {
+            g.setFont(new Font("Courier New", Font.PLAIN, 50));
+            g.drawString("Wan waaaannn...", 350, 350);
+            g.setFont(new Font("Courier New", Font.BOLD, 75));
+            g.drawString("WONDERHOY!!!!", 350, 450);
         }
         else {
             g.setFont(new Font("Courier New", Font.PLAIN, 50));
