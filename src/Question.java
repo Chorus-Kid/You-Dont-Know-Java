@@ -21,13 +21,5 @@ public class Question {
         return questionValue;
     }
 
-    public void checkQuestion(Player player, String playerAnswer) {
-        if (answer.equals(playerAnswer)) {
-            //play sound effect, visual effect, and voice clip if necessary
-            player.setMoney(player.getMoney() + questionValue);
-        }
-        else {
-            player.setMoney(player.getMoney() - questionValue);
-        }
-    }
+
 }

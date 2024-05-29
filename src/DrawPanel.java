@@ -8,12 +8,14 @@ import java.util.ArrayList;
 
 
 public class DrawPanel extends JPanel implements KeyListener {
+    private int bling;
+    private boolean peekaboo;
     private boolean onIntro;
     private boolean onSignIn;
     private boolean hereComesTheBoiiii;
     private Player cookieNotCookie;
     private boolean getReadyForSomeFunItsTimeForQuestionOne;
-    private MultipleChoiceQuestion beeeeaaaammmm;
+    private final MultipleChoiceQuestion beeeeaaaammmm;
     private boolean twoJustTwo;
     private boolean gibbewishKweshtwinUwU;
     private boolean yayyyQuestionFour;
@@ -30,6 +32,8 @@ public class DrawPanel extends JPanel implements KeyListener {
         onIntro = true;
         onSignIn = false;
         userName = "";
+        bling = 3000;
+        beeeeaaaammmm = new MultipleChoiceQuestion("If the coding language was named after the X in APCSP-X, what coding language would people learn from APCSP-X?", "2", 1000, "1. X#", "2. Xython", "3. Xava", "4. Xcratch");
     }
 
     protected void paintComponent(Graphics g) {
@@ -104,19 +108,22 @@ public class DrawPanel extends JPanel implements KeyListener {
         g.drawString("01", 50, 100);
         g.drawString("$1000", 1610, 100);
         g.setFont(new Font("Comic Sans", Font.PLAIN, 50));
-        g.drawString("And now, it's time! For the moment you've been waiting for!", 250, 100);
-        g.setColor(new Color(0x23A4FF));
-        beeeeaaaammmm = new MultipleChoiceQuestion("One! Two! Three! Ready?", "2", 1000, "1. MR. BEEEEAAAST", "2. MIKU MIKU BEEEEEAAAAAMMMM", "3. M@gical Cure! Love Shot!", "4. MIKU MIKU CHEEEEEEEEESE");
+        g.drawString("*proceeds to invoke apscp flashbacks*", 450, 100);
+        g.setColor(new Color(0xFFFFFFFF, true));
         g.setFont(new Font("Comic Sans", Font.PLAIN, 75));
-        g.drawString(beeeeaaaammmm.printQuestion(), 500, 200);
-        g.drawString(beeeeaaaammmm.getChoiceOne(), 250, 300);
-        g.drawString(beeeeaaaammmm.getChoiceTwo(), 250, 400);
-        g.drawString(beeeeaaaammmm.getChoiceThree(), 250, 500);
-        g.drawString(beeeeaaaammmm.getChoiceFour(), 250, 600);
+        g.drawString("If the coding language was named after", 250, 200);
+        g.drawString("the X in APCSP-X, what coding language", 250, 300);
+        g.drawString("would people have to learn if they take the class?", 200, 400);
+        g.setFont(new Font("Comic Sans", Font.PLAIN, 60));
+        g.drawString(beeeeaaaammmm.getChoiceOne(), 250, 500);
+        g.drawString(beeeeaaaammmm.getChoiceTwo(), 250, 600);
+        g.drawString(beeeeaaaammmm.getChoiceThree(), 250, 700);
+        g.drawString(beeeeaaaammmm.getChoiceFour(), 250, 800);
         g.setColor(new Color(255, 255, 255));
         g.setFont(new Font("Monospace", Font.PLAIN, 40));
-        g.drawString("(Type the number you think is correct)", 250, 700);
+        g.drawString("(Type the number you think is correct)", 250, 900);
     }
+
 
 
     public void keyTyped(KeyEvent e) {
@@ -146,14 +153,22 @@ public class DrawPanel extends JPanel implements KeyListener {
             }
         }
         if (getReadyForSomeFunItsTimeForQuestionOne) {
+            System.out.println("SCREAM");
+            if (beeeeaaaammmm == null) {
+                System.out.println("Gegu");
+            }
             if (e.getKeyChar() == (Integer.parseInt(beeeeaaaammmm.getAnswer()))) {
                 cookieNotCookie.setMoney(beeeeaaaammmm.getQuestionValue() + cookieNotCookie.getMoney());
+                cookieNotCookie.printPlayer();
             }
             else if (!(e.getKeyChar() == (Integer.parseInt(beeeeaaaammmm.getAnswer())))) {
                 cookieNotCookie.setMoney(cookieNotCookie.getMoney() - beeeeaaaammmm.getQuestionValue());
+                cookieNotCookie.printPlayer();
             }
             getReadyForSomeFunItsTimeForQuestionOne = false;
+            peekaboo = true;
         }
+
 
     }
    /** public String showOnScreen(KeyEvent e, Graphics g) {
