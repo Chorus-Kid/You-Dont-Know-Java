@@ -153,7 +153,7 @@ public class DrawPanel extends JPanel implements KeyListener {
             }
         }
         if (getReadyForSomeFunItsTimeForQuestionOne) {
-            System.out.println("SCREAM");
+            System.out.println("☆彡");
             if (beeeeaaaammmm == null) {
                 System.out.println("Gegu");
             }
