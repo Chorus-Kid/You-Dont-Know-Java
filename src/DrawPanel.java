@@ -9,13 +9,16 @@ import java.util.ArrayList;
 
 public class DrawPanel extends JPanel implements KeyListener {
     private int bling;
+    private String[] theRoasting;
+    private String[] theSimping;
     private boolean peekaboo;
+    private boolean getWarpedLmao;
     private boolean onIntro;
     private boolean onSignIn;
     private boolean hereComesTheBoiiii;
     private Player cookieNotCookie;
     private boolean getReadyForSomeFunItsTimeForQuestionOne;
-    private final MultipleChoiceQuestion beeeeaaaammmm;
+    private MultipleChoiceQuestion beeeeaaaammmm;
     private boolean twoJustTwo;
     private boolean gibbewishKweshtwinUwU;
     private boolean yayyyQuestionFour;
@@ -32,8 +35,8 @@ public class DrawPanel extends JPanel implements KeyListener {
         onIntro = true;
         onSignIn = false;
         userName = "";
-        bling = 3000;
-        beeeeaaaammmm = new MultipleChoiceQuestion("If the coding language was named after the X in APCSP-X, what coding language would people learn from APCSP-X?", "2", 1000, "1. X#", "2. Xython", "3. Xava", "4. Xcratch");
+        theRoasting = new String[]{"pay up bub", "LMAOOOOOO this game isn't that hard", "bro does NOT know Jack", "keep yourself safe/j", "*insert funny Cookie quip here*"};
+        theSimping = new String[]{"woah no way you're rich now", "bro's actually a genius wtf", "wow you're so smart!!!!!", "you did it!!!!", "wanna cookie?"};
     }
 
     protected void paintComponent(Graphics g) {
@@ -50,6 +53,12 @@ public class DrawPanel extends JPanel implements KeyListener {
         }
         else if (getReadyForSomeFunItsTimeForQuestionOne) {
             Q1(g);
+        }
+        else if (peekaboo) {
+            money(g);
+        }
+        else if (getWarpedLmao) {
+            backrooms(g);
         }
     }
 
@@ -100,6 +109,31 @@ public class DrawPanel extends JPanel implements KeyListener {
         g.drawString("(Press space to continue)", 350, 750);
     }
 
+    public void money(Graphics g) {
+        g.setColor(new Color(100));
+        g.fillRect(0, 0, 5000, 5000);
+        g.setColor(new Color(255, 165, 0));
+        g.setFont(new Font("Courier New", Font.BOLD, 100));
+        g.drawString(cookieNotCookie.printPlayer(), 290, 250);
+        if (cookieNotCookie.getMoney() >= 1000) {
+            g.setFont(new Font("Courier New", Font.PLAIN, 50));
+            int choice = (int)(Math.random() * 4);
+            g.drawString(theSimping[choice], 350, 350);
+            System.out.println(theSimping[choice]);
+        }
+        if (cookieNotCookie.getMoney() <= -1000) {
+            g.setFont(new Font("Courier New", Font.PLAIN, 50));
+            int choice = (int)(Math.random() * 4);
+            g.drawString(theRoasting[choice], 350, 350);
+            System.out.println(theRoasting[choice]);
+        }
+    }
+
+    public void backrooms(Graphics g) {
+        g.drawString("AYE YOU'RE NOT SUPPOSED TO SEE THIS", 350, 350);
+        g.drawString("GET OUT", 350, 400);
+    }
+
     public void Q1(Graphics g) {
         g.setColor(new Color(0));
         g.fillRect(0, 0, 5000, 5000);
@@ -110,6 +144,7 @@ public class DrawPanel extends JPanel implements KeyListener {
         g.setFont(new Font("Comic Sans", Font.PLAIN, 50));
         g.drawString("*proceeds to invoke apscp flashbacks*", 450, 100);
         g.setColor(new Color(0xFFFFFFFF, true));
+        beeeeaaaammmm = new MultipleChoiceQuestion("If the coding language was named after the X in APCSP-X, what coding language would people learn from APCSP-X?", "2", 1000, "1. X#", "2. Xython", "3. Xava", "4. Xcratch");
         g.setFont(new Font("Comic Sans", Font.PLAIN, 75));
         g.drawString("If the coding language was named after", 250, 200);
         g.drawString("the X in APCSP-X, what coding language", 250, 300);
@@ -154,19 +189,28 @@ public class DrawPanel extends JPanel implements KeyListener {
         }
         if (getReadyForSomeFunItsTimeForQuestionOne) {
             System.out.println("☆彡");
+            System.out.println(e.getKeyChar() == beeeeaaaammmm.getAnswer().charAt(0));
             if (beeeeaaaammmm == null) {
                 System.out.println("Gegu");
             }
-            if (e.getKeyChar() == (Integer.parseInt(beeeeaaaammmm.getAnswer()))) {
+            if (e.getKeyChar() == beeeeaaaammmm.getAnswer().charAt(0)) {
+                System.out.println("Got here");
                 cookieNotCookie.setMoney(beeeeaaaammmm.getQuestionValue() + cookieNotCookie.getMoney());
                 cookieNotCookie.printPlayer();
             }
-            else if (!(e.getKeyChar() == (Integer.parseInt(beeeeaaaammmm.getAnswer())))) {
+            else if (!(e.getKeyChar() == beeeeaaaammmm.getAnswer().charAt(0))) {
                 cookieNotCookie.setMoney(cookieNotCookie.getMoney() - beeeeaaaammmm.getQuestionValue());
                 cookieNotCookie.printPlayer();
             }
             getReadyForSomeFunItsTimeForQuestionOne = false;
             peekaboo = true;
+        }
+        if (peekaboo) {
+            System.out.println("You better not press space...");
+            if (e.getKeyChar() == ' ') {
+                peekaboo = false;
+                getWarpedLmao = true;
+            }
         }
 
 
