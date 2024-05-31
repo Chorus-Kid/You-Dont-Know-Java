@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 public class DrawPanel extends JPanel implements KeyListener {
     private int bling;
+    private int choice;
     private String[] theRoasting;
     private String[] theSimping;
     private boolean peekaboo;
@@ -35,7 +36,7 @@ public class DrawPanel extends JPanel implements KeyListener {
         onIntro = true;
         onSignIn = false;
         userName = "";
-        theRoasting = new String[]{"pay up bub", "LMAOOOOOO this game isn't that hard", "bro does NOT know Jack", "keep yourself safe/j", "*insert funny Cookie quip here*"};
+        theRoasting = new String[]{"pay up bub", "LMAOOOOOO this game isn't that hard", "bro does NOT know Jack", "keep yourself safe/j", "How does one get a negative score in a game show"};
         theSimping = new String[]{"woah no way you're rich now", "bro's actually a genius wtf", "wow you're so smart!!!!!", "you did it!!!!", "wanna cookie?"};
     }
 
@@ -117,13 +118,11 @@ public class DrawPanel extends JPanel implements KeyListener {
         g.drawString(cookieNotCookie.printPlayer(), 290, 250);
         if (cookieNotCookie.getMoney() >= 1000) {
             g.setFont(new Font("Courier New", Font.PLAIN, 50));
-            int choice = (int)(Math.random() * 4);
             g.drawString(theSimping[choice], 350, 350);
             System.out.println(theSimping[choice]);
         }
         if (cookieNotCookie.getMoney() <= -1000) {
             g.setFont(new Font("Courier New", Font.PLAIN, 50));
-            int choice = (int)(Math.random() * 4);
             g.drawString(theRoasting[choice], 350, 350);
             System.out.println(theRoasting[choice]);
         }
@@ -202,6 +201,7 @@ public class DrawPanel extends JPanel implements KeyListener {
                 cookieNotCookie.setMoney(cookieNotCookie.getMoney() - beeeeaaaammmm.getQuestionValue());
                 cookieNotCookie.printPlayer();
             }
+            choice = (int)(Math.random() * 4);
             getReadyForSomeFunItsTimeForQuestionOne = false;
             peekaboo = true;
         }
