@@ -20,7 +20,10 @@ public class DrawPanel extends JPanel implements KeyListener {
     private Player cookieNotCookie;
     private boolean getReadyForSomeFunItsTimeForQuestionOne;
     private MultipleChoiceQuestion beeeeaaaammmm;
+    private MultipleChoiceQuestion peepeeHehe;
     private boolean twoJustTwo;
+    private boolean checkPointOne;
+    private boolean checkPointTwo;
     private boolean gibbewishKweshtwinUwU;
     private boolean yayyyQuestionFour;
     private boolean streetMurder;
@@ -28,6 +31,7 @@ public class DrawPanel extends JPanel implements KeyListener {
     private boolean jakkuAttakku;
 
     private String userName;
+    private String jibrishAnser;
 
     public DrawPanel() {
         this.addKeyListener(this);
@@ -61,6 +65,9 @@ public class DrawPanel extends JPanel implements KeyListener {
         }
         else if (getWarpedLmao) {
             backrooms(g);
+        }
+        else if (twoJustTwo) {
+            Q2(g);
         }
     }
 
@@ -130,7 +137,7 @@ public class DrawPanel extends JPanel implements KeyListener {
     }
 
     public void backrooms(Graphics g) {
-        g.drawString("AYE YOU'RE NOT SUPPOSED TO SEE THIS", 350, 350);
+        g.drawString("AYE YOU'RE NOT SUPPOSED TO HERE", 350, 350);
         g.drawString("GET OUT", 350, 400);
     }
 
@@ -157,6 +164,26 @@ public class DrawPanel extends JPanel implements KeyListener {
         g.setColor(new Color(255, 255, 255));
         g.setFont(new Font("Monospace", Font.PLAIN, 40));
         g.drawString("(Type the number you think is correct)", 250, 900);
+    }
+
+    public void Q2(Graphics g) {
+        g.setColor(new Color(0));
+        g.fillRect(0, 0, 5000, 5000);
+        g.setColor(new Color(0xFFFFFF));
+        g.setFont(new Font("Monospace", Font.BOLD, 100));
+        g.drawString("02", 50, 100);
+        g.drawString("$2000", 1610, 100);
+        g.setFont(new Font("Comic Sans", Font.PLAIN, 50));
+        g.drawString("Advanced Pladvanced", 500, 100);
+        peepeeHehe = new MultipleChoiceQuestion("pee pee poo poo", "1", 2000, "1. APADS", "2. APUSH", "3. APES", "4. APHUG");
+        g.setFont(new Font("Comic Sans", Font.PLAIN, 75));
+        g.drawString("Which of these words is not the", 270, 200);
+        g.drawString("abbreviated name of a real AP class?", 240, 300);
+        g.setFont(new Font("Comic Sans", Font.PLAIN, 60));
+        g.drawString(peepeeHehe.getChoiceOne(), 250, 400);
+        g.drawString(peepeeHehe.getChoiceTwo(), 250, 500);
+        g.drawString(peepeeHehe.getChoiceThree(), 250, 600);
+        g.drawString(peepeeHehe.getChoiceFour(), 250, 700);
     }
 
 
@@ -188,13 +215,7 @@ public class DrawPanel extends JPanel implements KeyListener {
             }
         }
         if (getReadyForSomeFunItsTimeForQuestionOne) {
-            System.out.println("☆彡");
-            System.out.println(e.getKeyChar() == beeeeaaaammmm.getAnswer().charAt(0));
-            if (beeeeaaaammmm == null) {
-                System.out.println("Gegu");
-            }
             if (e.getKeyChar() == beeeeaaaammmm.getAnswer().charAt(0)) {
-                System.out.println("Got here");
                 cookieNotCookie.setMoney(beeeeaaaammmm.getQuestionValue() + cookieNotCookie.getMoney());
                 cookieNotCookie.printPlayer();
             }
@@ -203,17 +224,39 @@ public class DrawPanel extends JPanel implements KeyListener {
                 cookieNotCookie.printPlayer();
             }
             choice = (int)(Math.random() * 4);
+            checkPointOne = true;
             getReadyForSomeFunItsTimeForQuestionOne = false;
             peekaboo = true;
         }
         if (peekaboo) {
-            System.out.println("You better not press space...");
             if (e.getKeyChar() == ' ') {
-                peekaboo = false;
-                getWarpedLmao = true;
+                if(checkPointOne) {
+                    checkPointOne = false;
+                    peekaboo = false;
+                    twoJustTwo = true;
+                }
+                if(checkPointTwo) {
+                    checkPointTwo = false;
+                    peekaboo = false;
+                    getWarpedLmao = true;
+                }
             }
         }
 
+        if (twoJustTwo) {
+            if (e.getKeyChar() == peepeeHehe.getAnswer().charAt(0)) {
+                cookieNotCookie.setMoney(peepeeHehe.getQuestionValue() + cookieNotCookie.getMoney());
+                cookieNotCookie.printPlayer();
+            }
+            else if (!(e.getKeyChar() == peepeeHehe.getAnswer().charAt(0))) {
+                cookieNotCookie.setMoney(cookieNotCookie.getMoney() - peepeeHehe.getQuestionValue());
+                cookieNotCookie.printPlayer();
+            }
+            choice = (int)(Math.random() * 4);
+            twoJustTwo = false;
+            checkPointTwo = true;
+            peekaboo = true;
+        }
 
     }
 
