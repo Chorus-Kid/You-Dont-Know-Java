@@ -36,7 +36,7 @@ public class DrawPanel extends JPanel implements KeyListener {
         onIntro = true;
         onSignIn = false;
         userName = "";
-        theRoasting = new String[]{"pay up bub", "LMAOOOOOO this game isn't that hard", "bro does NOT know Jack", "keep yourself safe/j", "How does one get a negative score in a game show"};
+        theRoasting = new String[]{"pay up bub", "LMAOOOOOO this game isn't that hard", "bro does NOT know Jack", "git gud", "How does one get a negative score in a game show"};
         theSimping = new String[]{"woah no way you're rich now", "bro's actually a genius wtf", "wow you're so smart!!!!!", "you did it!!!!", "wanna cookie?"};
     }
 
@@ -69,8 +69,8 @@ public class DrawPanel extends JPanel implements KeyListener {
         g.setColor(new Color(255, 255, 255, 255));
         g.setFont(new Font("Impact", Font.BOLD, 125));
         g.drawString("YOU DON'T KNOW", 500, 250);
-        g.setFont(new Font("Impact", Font.BOLD, 425));
-        g.drawString("JACK", 490, 610);
+        g.setFont(new Font("Impact", Font.BOLD, 445));
+        g.drawString("JAVA", 500, 625);
         g.setFont(new Font("Monospaced", Font.PLAIN, 40));
         g.drawString("Press space to continue", 650, 700);
     }
