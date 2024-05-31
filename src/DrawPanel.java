@@ -36,6 +36,7 @@ public class DrawPanel extends JPanel implements KeyListener {
         onIntro = true;
         onSignIn = false;
         userName = "";
+        bling = 3000;
         theRoasting = new String[]{"pay up bub", "LMAOOOOOO this game isn't that hard", "bro does NOT know Jack", "git gud", "How does one get a negative score in a game show"};
         theSimping = new String[]{"woah no way you're rich now", "bro's actually a genius wtf", "wow you're so smart!!!!!", "you did it!!!!", "wanna cookie?"};
     }
@@ -215,22 +216,6 @@ public class DrawPanel extends JPanel implements KeyListener {
 
 
     }
-   /** public String showOnScreen(KeyEvent e, Graphics g) {
-        if (onSignIn) {
-            String name = "";
-            String letter = String.valueOf(e.getKeyChar());
-            int startingPosition = 100;
-            int plusSpace = 25;
-            while (e.getKeyCode() != KeyEvent.VK_ENTER) {
-                g.drawString(letter, startingPosition + plusSpace, 100);
-                name = name + letter;
-                plusSpace = plusSpace + 25;
-            }
-            return name;
-        }
-
-    }
-    **/
 
     public void keyPressed(KeyEvent e) {
 

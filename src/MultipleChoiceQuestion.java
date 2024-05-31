@@ -10,9 +10,6 @@ public class MultipleChoiceQuestion extends Question {
         choiceThree = three;
         choiceFour = four;
     }
-    public String printQuestion() {
-        return getQuestion();
-    }
 
     public String getChoiceOne() {
         return choiceOne;
