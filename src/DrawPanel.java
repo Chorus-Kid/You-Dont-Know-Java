@@ -14,6 +14,7 @@ public class DrawPanel extends JPanel implements KeyListener {
     private String[] theSimping;
     private boolean peekaboo;
     private boolean getWarpedLmao;
+    private boolean ready;
     private boolean onIntro;
     private boolean onSignIn;
     private boolean hereComesTheBoiiii;
@@ -21,10 +22,12 @@ public class DrawPanel extends JPanel implements KeyListener {
     private boolean getReadyForSomeFunItsTimeForQuestionOne;
     private MultipleChoiceQuestion beeeeaaaammmm;
     private MultipleChoiceQuestion peepeeHehe;
+    private FlickerplishRestquinn roverCodedDumbStructor;
     private boolean twoJustTwo;
     private boolean checkPointOne;
     private boolean checkPointTwo;
     private boolean gibbewishKweshtwinUwU;
+    private boolean checkPointThree;
     private boolean yayyyQuestionFour;
     private boolean streetMurder;
     private boolean goinLostGoldStyleHere;
@@ -42,7 +45,7 @@ public class DrawPanel extends JPanel implements KeyListener {
         userName = "";
         bling = 3000;
         theRoasting = new String[]{"pay up bub", "LMAOOOOOO this game isn't that hard", "bro does NOT know Jack", "git gud", "How does one get a negative score in a game show"};
-        theSimping = new String[]{"woah no way you're rich now", "bro's actually a genius wtf", "wow you're so smart!!!!!", "you did it!!!!", "wanna cookie?"};
+        theSimping = new String[]{"woah no way you're rich now", "bro's actually a genius wtf", "wow you're so rich!!!!!", "", "Mmmmmoney for you"};
     }
 
     protected void paintComponent(Graphics g) {
@@ -68,6 +71,9 @@ public class DrawPanel extends JPanel implements KeyListener {
         }
         else if (twoJustTwo) {
             Q2(g);
+        }
+        else if (gibbewishKweshtwinUwU) {
+            Q3(g);
         }
     }
 
@@ -124,12 +130,12 @@ public class DrawPanel extends JPanel implements KeyListener {
         g.setColor(new Color(255, 165, 0));
         g.setFont(new Font("Courier New", Font.BOLD, 100));
         g.drawString(cookieNotCookie.printPlayer(), 290, 250);
-        if (cookieNotCookie.getMoney() >= 1000) {
+        if (cookieNotCookie.getMoney() > 0) {
             g.setFont(new Font("Courier New", Font.PLAIN, 50));
             g.drawString(theSimping[choice], 350, 350);
             System.out.println(theSimping[choice]);
         }
-        if (cookieNotCookie.getMoney() <= -1000) {
+        if (cookieNotCookie.getMoney() < 0) {
             g.setFont(new Font("Courier New", Font.PLAIN, 50));
             g.drawString(theRoasting[choice], 350, 350);
             System.out.println(theRoasting[choice]);
@@ -174,16 +180,39 @@ public class DrawPanel extends JPanel implements KeyListener {
         g.drawString("02", 50, 100);
         g.drawString("$2000", 1610, 100);
         g.setFont(new Font("Comic Sans", Font.PLAIN, 50));
-        g.drawString("Advanced Pladvanced", 500, 100);
-        peepeeHehe = new MultipleChoiceQuestion("pee pee poo poo", "1", 2000, "1. APADS", "2. APUSH", "3. APES", "4. APHUG");
+        g.drawString("*chug chug*", 600, 100);
+        peepeeHehe = new MultipleChoiceQuestion("pee pee poo poo", "1", 2000, "1. Brazil", "2. Colombia", "3. Vietnam", "4. Tunisia");
         g.setFont(new Font("Comic Sans", Font.PLAIN, 75));
-        g.drawString("Which of these words is not the", 270, 200);
-        g.drawString("abbreviated name of a real AP class?", 240, 300);
+        g.drawString("Say all the java developers moved to", 270, 200);
+        g.drawString("the country that produces the most java.", 240, 300);
+        g.drawString("If you were looking to have someone make", 250, 400);
+        g.drawString("your program, which country would you go to?", 200, 500);
         g.setFont(new Font("Comic Sans", Font.PLAIN, 60));
-        g.drawString(peepeeHehe.getChoiceOne(), 250, 400);
-        g.drawString(peepeeHehe.getChoiceTwo(), 250, 500);
-        g.drawString(peepeeHehe.getChoiceThree(), 250, 600);
-        g.drawString(peepeeHehe.getChoiceFour(), 250, 700);
+        g.drawString(peepeeHehe.getChoiceOne(), 250, 600);
+        g.drawString(peepeeHehe.getChoiceTwo(), 250, 700);
+        g.drawString(peepeeHehe.getChoiceThree(), 250, 800);
+        g.drawString(peepeeHehe.getChoiceFour(), 250, 900);
+    }
+
+    public void Q3(Graphics g) {
+        g.setColor(new Color(0));
+        g.fillRect(0, 0, 5000, 5000);
+        g.setColor(new Color(255, 255, 255));
+        g.setFont(new Font("Monospace", Font.BOLD, 100));
+        g.drawString("03", 50, 100);
+        g.drawString("$3500", 1610, 100);
+        g.setFont(new Font("Comic Sans", Font.PLAIN, 50));
+        g.drawString("Get Ready to Rhyme!", 500, 100);
+        roverCodedDumbStructor = new FlickerplishRestquinn("Rover Coded Dumb Structor", "overloaded constructor", "It's when you want to make a thing", "similar to another thing", "I need more than one constructor", 3500);
+        g.setFont(new Font("Monospace", Font.PLAIN, 40));
+        g.drawString("(Press enter when you're ready to enter!)", 250, 600);
+        if (ready) {
+            long timeStart = System.currentTimeMillis();
+
+            g.setColor(new Color(0));
+            g.fillRect(0, 600, 5000, 5000);
+            g.drawString(jibrishAnser, 250, 600);
+        }
     }
 
 
@@ -238,7 +267,7 @@ public class DrawPanel extends JPanel implements KeyListener {
                 if(checkPointTwo) {
                     checkPointTwo = false;
                     peekaboo = false;
-                    getWarpedLmao = true;
+                    gibbewishKweshtwinUwU = true;
                 }
             }
         }
@@ -255,6 +284,32 @@ public class DrawPanel extends JPanel implements KeyListener {
             choice = (int)(Math.random() * 4);
             twoJustTwo = false;
             checkPointTwo = true;
+            peekaboo = true;
+        }
+        if (gibbewishKweshtwinUwU) {
+            ready = false;
+            if (!ready && (int)e.getKeyChar() == 10) {
+                ready = true;
+            }
+            if ((int)e.getKeyChar() == 8) {
+                jibrishAnser = jibrishAnser.substring(0 , jibrishAnser.length() - 1);
+            }
+
+            else {
+                jibrishAnser += e.getKeyChar();
+            }
+            if (ready && (int)e.getKeyChar() == 10) {
+                if (jibrishAnser.toLowerCase().equals(roverCodedDumbStructor.getAnswer())) {
+                    cookieNotCookie.setMoney(roverCodedDumbStructor.getQuestionValue() + cookieNotCookie.getMoney());
+                    cookieNotCookie.printPlayer();
+                }
+                else if (!jibrishAnser.toLowerCase().equals(roverCodedDumbStructor.getAnswer())) {
+                    cookieNotCookie.setMoney(cookieNotCookie.getMoney() - roverCodedDumbStructor.getQuestionValue());
+                    cookieNotCookie.printPlayer();
+                }
+            }
+            gibbewishKweshtwinUwU = false;
+            checkPointThree = true;
             peekaboo = true;
         }
 

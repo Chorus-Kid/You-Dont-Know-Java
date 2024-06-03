@@ -15,10 +15,6 @@ public class FlickerplishRestquinn extends Question{
         return getQuestion();
     }
 
-    public void giveHints() {
-        Timer fHint = new Timer();
-        fHint.schedule(new FlickerplishWince(), 15000);
-    }
 
     public String getFirstHint() {
         return firstHint;
