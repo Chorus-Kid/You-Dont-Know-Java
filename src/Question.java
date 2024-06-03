@@ -9,6 +9,10 @@ public class Question {
         questionValue = money;
     }
 
+    public void setQuestionValue(int questionValue) {
+        this.questionValue = questionValue;
+    }
+
     public String getQuestion() {
         return question;
     }
