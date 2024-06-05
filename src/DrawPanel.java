@@ -27,11 +27,9 @@ public class DrawPanel extends JPanel implements KeyListener {
     private boolean checkPointOne;
     private boolean checkPointTwo;
     private boolean gibbewishKweshtwinUwU;
+    private boolean timerStarted;
     private boolean checkPointThree;
     private boolean yayyyQuestionFour;
-    private boolean streetMurder;
-    private boolean goinLostGoldStyleHere;
-    private boolean jakkuAttakku;
 
     private String userName;
     private String jibrishAnser;
@@ -44,8 +42,8 @@ public class DrawPanel extends JPanel implements KeyListener {
         onSignIn = false;
         userName = "";
         bling = 3000;
-        theRoasting = new String[]{"pay up bub", "LMAOOOOOO this game isn't that hard", "bro does NOT know Jack", "git gud", "How does one get a negative score in a game show"};
-        theSimping = new String[]{"woah no way you're rich now", "bro's actually a genius wtf", "wow you're so rich!!!!!", "", "Mmmmmoney for you"};
+        theRoasting = new String[]{"pay up bub", "LMAOOOOOO this game isn't that hard", "bro does NOT know anything", "git gud", "How does one get a negative score in a game show"};
+        theSimping = new String[]{"woah no way you're rich now", "bro's actually a genius wtf", "wow you're so rich!!!!!", "you could do this as your job!!", "Mmmmmoney for you"};
     }
 
     protected void paintComponent(Graphics g) {
@@ -143,6 +141,7 @@ public class DrawPanel extends JPanel implements KeyListener {
     }
 
     public void backrooms(Graphics g) {
+        System.out.println("We just jumped here?");
         g.drawString("AYE YOU'RE NOT SUPPOSED TO HERE", 350, 350);
         g.drawString("GET OUT", 350, 400);
     }
@@ -195,6 +194,7 @@ public class DrawPanel extends JPanel implements KeyListener {
     }
 
     public void Q3(Graphics g) {
+        System.out.println("gyu");
         g.setColor(new Color(0));
         g.fillRect(0, 0, 5000, 5000);
         g.setColor(new Color(255, 255, 255));
@@ -203,12 +203,29 @@ public class DrawPanel extends JPanel implements KeyListener {
         g.drawString("$3500", 1610, 100);
         g.setFont(new Font("Comic Sans", Font.PLAIN, 50));
         g.drawString("Get Ready to Rhyme!", 500, 100);
-        roverCodedDumbStructor = new FlickerplishRestquinn("Rover Coded Dumb Structor", "overloaded constructor", "It's when you want to make a thing", "similar to another thing", "I need more than one constructor", 3500);
+        roverCodedDumbStructor = new FlickerplishRestquinn("Wrist thin, not gout, got lint", "system.out.print", "It's when you want to say something", "and say exactly that one thing.", "It's the first thing we learned in this class!!", 3500);
         g.setFont(new Font("Monospace", Font.PLAIN, 40));
-        g.drawString("(Press enter when you're ready to enter!)", 250, 600);
+        g.drawString("(Press enter when you're ready to answer!)", 250, 600);
+        g.drawString("Btw, you have 30 seconds to answer!", 250, 700);
+        g.drawString(roverCodedDumbStructor.getQuestion(), 150, 200);
+        timerStarted = true;
+        long timeStart = System.currentTimeMillis();
+        if (timerStarted) {
+            if ((int)(System.currentTimeMillis() - timeStart) / 1000 == 10) {
+                g.drawString(roverCodedDumbStructor.getFirstHint(), 250, 300);
+                roverCodedDumbStructor.setQuestionValue(3000);
+            }
+            if ((int)(System.currentTimeMillis() - timeStart) / 1000 == 15) {
+                g.drawString(roverCodedDumbStructor.getSecondHint(), 250, 400);
+                roverCodedDumbStructor.setQuestionValue(2000);
+            }
+            if ((int)(System.currentTimeMillis() - timeStart) / 1000 == 20) {
+                g.drawString(roverCodedDumbStructor.getThirdHint(), 250, 500);
+                roverCodedDumbStructor.setQuestionValue(1000);
+            }
+        }
         if (ready) {
-            long timeStart = System.currentTimeMillis();
-
+            timerStarted = false;
             g.setColor(new Color(0));
             g.fillRect(0, 600, 5000, 5000);
             g.drawString(jibrishAnser, 250, 600);
@@ -269,6 +286,11 @@ public class DrawPanel extends JPanel implements KeyListener {
                     peekaboo = false;
                     gibbewishKweshtwinUwU = true;
                 }
+                if(checkPointThree) {
+                    checkPointThree = false;
+                    peekaboo = false;
+                    getWarpedLmao = true;
+                }
             }
         }
 
@@ -288,10 +310,22 @@ public class DrawPanel extends JPanel implements KeyListener {
         }
         if (gibbewishKweshtwinUwU) {
             ready = false;
-            if (!ready && (int)e.getKeyChar() == 10) {
+            if ((int)e.getKeyChar() == 10) {
+                if (!ready) {
                 ready = true;
+                else {
+                        if (jibrishAnser.toLowerCase().equals(roverCodedDumbStructor.getAnswer())) {
+                            cookieNotCookie.setMoney(roverCodedDumbStructor.getQuestionValue() + cookieNotCookie.getMoney());
+                            cookieNotCookie.printPlayer();
+                        }
+                        else if (!jibrishAnser.toLowerCase().equals(roverCodedDumbStructor.getAnswer())) {
+                            cookieNotCookie.setMoney(cookieNotCookie.getMoney() - roverCodedDumbStructor.getQuestionValue());
+                            cookieNotCookie.printPlayer();
+                        }
+                    }
+                    }
             }
-            if ((int)e.getKeyChar() == 8) {
+            if (ready && (int)e.getKeyChar() == 8) {
                 jibrishAnser = jibrishAnser.substring(0 , jibrishAnser.length() - 1);
             }
 
@@ -299,15 +333,7 @@ public class DrawPanel extends JPanel implements KeyListener {
                 jibrishAnser += e.getKeyChar();
             }
             if (ready && (int)e.getKeyChar() == 10) {
-                if (jibrishAnser.toLowerCase().equals(roverCodedDumbStructor.getAnswer())) {
-                    cookieNotCookie.setMoney(roverCodedDumbStructor.getQuestionValue() + cookieNotCookie.getMoney());
-                    cookieNotCookie.printPlayer();
-                }
-                else if (!jibrishAnser.toLowerCase().equals(roverCodedDumbStructor.getAnswer())) {
-                    cookieNotCookie.setMoney(cookieNotCookie.getMoney() - roverCodedDumbStructor.getQuestionValue());
-                    cookieNotCookie.printPlayer();
-                }
-            }
+
             gibbewishKweshtwinUwU = false;
             checkPointThree = true;
             peekaboo = true;
